@@ -1,4 +1,5 @@
 from itertools import combinations
+from collections import Counter
 from collections.abc import Collection
 from typing import TypeVar
 
@@ -12,7 +13,7 @@ def powerset(collection: Collection[T]) -> Generator[set[T], None, None]:
 
     Power sets
     ------------
-    
+
     The power set of a collections is the set of all subsets of the collection.
 
     * The power set includes the empty set.
@@ -51,9 +52,11 @@ def powerset(collection: Collection[T]) -> Generator[set[T], None, None]:
             {'one', 'three', 'two'}
     """
 
+    # We don't want duplicats, so
+    s: set = set(Counter(collection))
     # explicitly start at 0 to not forget that the empty set
     # is in the powerset
-    for r in range(0, len(collection) + 1):
-        for result in combinations(collection, r):
+    for r in range(0, len(s) + 1):
+        for result in combinations(s, r):
             # itertools.combinations spits out tuples irrespective of type of s
             yield set(result)
