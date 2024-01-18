@@ -59,7 +59,7 @@ dependencies = [
   "mypy>=1.0.0",
 ]
 [tool.hatch.envs.types.scripts]
-check = "mypy --install-types --non-interactive {args:src/powerset_generator tests}"
+check = "mypy --install-types --non-interactive {args:powerset_generator tests}"
 
 [tool.coverage.run]
 source_pkgs = ["powerset_generator", "tests"]

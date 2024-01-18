@@ -21,7 +21,7 @@ class TestPowerset(unittest.TestCase):
         {1, 2, 3},
     ]
 
-    def test_powerset(self):
+    def test_powerset(self) -> None:
         result: list[set[int]] = [s for s in powerset.powerset(self.three_list)]
 
         # AssertCountEqual requires elements to be hashable, which they
@@ -31,7 +31,7 @@ class TestPowerset(unittest.TestCase):
             all(result.count(i) == self.power_three.count(i) for i in result)
         )
 
-    def test_powerset_repeated(self):
+    def test_powerset_repeated(self) -> None:
         result: list[set[int]] = [s for s in powerset.powerset(self.three_repetition)]
 
         # AssertCountEqual requires elements to be hashable, which they
@@ -41,7 +41,7 @@ class TestPowerset(unittest.TestCase):
             all(result.count(i) == self.power_three.count(i) for i in result)
         )
 
-    def test_cardinality(self):
+    def test_cardinality(self) -> None:
         vectors: list[tuple[int, list[int]]] = [
             (1, []),
             (1024, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),

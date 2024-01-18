@@ -53,7 +53,7 @@ def powerset(collection: Collection[T]) -> Generator[set[T], None, None]:
     """
 
     # We don't want duplicats, so
-    s: set = set(Counter(collection))
+    s: set[T] = set(Counter(collection))
 
     # explicitly start at 0 to not forget that the empty set
     # is in the powerset
