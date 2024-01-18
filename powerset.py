@@ -7,13 +7,35 @@ from typing import Generator
 T = TypeVar("T")
 
 
-def powerset(s: Collection[T]) -> Generator[set[T], None, None]:
+def powerset(collection: Collection[T]) -> Generator[set[T], None, None]:
     """Generates the members of the powerset of s.
 
-    Output includes the empty set. Order of output is not defined.
+    Power sets
+    ------------
+    
+    The power set of a collections is the set of all subsets of the collection.
 
-    Example:
-        s: set[str] = {"one", "two", "three"}
+    * The power set includes the empty set.
+
+    * The power set includes a set of all members of the collections.
+    That is, it is not limited to the proper subsets of the collection.
+
+    * If the collection has N elements, the power set will have 2^N elements.
+
+    Usage notes
+    -------------
+
+    This function generators sets irrespective of the type of its input.
+
+    In the current version, there is no enforcement of the type hinting that
+    members of the input collection all be of the same type. But do not rely on
+    this lax behavior.
+
+
+
+    Example::
+
+        a_list: list[str] = ["one", "two", "three"]
         for element in powerset(s):
             print(element)
 
@@ -31,7 +53,7 @@ def powerset(s: Collection[T]) -> Generator[set[T], None, None]:
 
     # explicitly start at 0 to not forget that the empty set
     # is in the powerset
-    for r in range(0, len(s) + 1):
-        for result in combinations(s, r):
+    for r in range(0, len(collection) + 1):
+        for result in combinations(collection, r):
             # itertools.combinations spits out tuples irrespective of type of s
             yield set(result)
