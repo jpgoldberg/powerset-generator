@@ -32,7 +32,7 @@ Issues = "https://github.com/jpgoldberg/powerset-generator/issues"
 Source = "https://github.com/jpgoldberg/powerset-generator"
 
 [tool.hatch.version]
-path = "src/powerset_generator/__about__.py"
+path = "powerset_generator/__about__.py"
 
 [tool.hatch.envs.default]
 dependencies = [
@@ -66,11 +66,11 @@ source_pkgs = ["powerset_generator", "tests"]
 branch = true
 parallel = true
 omit = [
-  "src/powerset_generator/__about__.py",
+  "powerset_generator/__about__.py",
 ]
 
 [tool.coverage.paths]
-powerset_generator = ["src/powerset_generator", "*/powerset-generator/src/powerset_generator"]
+powerset_generator = ["powerset_generator", "*/powerset-generator/powerset_generator"]
 tests = ["tests", "*/powerset-generator/tests"]
 
 [tool.coverage.report]

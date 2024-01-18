@@ -14,7 +14,8 @@ def powerset(collection: Collection[T]) -> Generator[set[T], None, None]:
     Power sets
     ------------
 
-    The power set of a collections is the set of all subsets of the collection.
+    The power set of a collections is the set of all subsets of
+    the collection.
 
     * The power set includes the empty set.
 
@@ -26,13 +27,12 @@ def powerset(collection: Collection[T]) -> Generator[set[T], None, None]:
     Usage notes
     -------------
 
-    This function generators sets irrespective of the type of its input.
+    This this fuction generates sets irrespective of the type of its input.
+    That is, given a list, it will yield sets.
 
-    In the current version, there is no enforcement of the type hinting that
-    members of the input collection all be of the same type. But do not rely on
-    this lax behavior.
-
-
+    In the current version there is no enforcement of the type hinting
+    that members of the input collection all be of the same type. But
+    do not rely on this lax behavior.
 
     Example::
 
@@ -40,16 +40,16 @@ def powerset(collection: Collection[T]) -> Generator[set[T], None, None]:
         for element in powerset(s):
             print(element)
 
-        produces
+    produces::
 
-            set()
-            {'one'}
-            {'three'}
-            {'two'}
-            {'one', 'three'}
-            {'one', 'two'}
-            {'three', 'two'}
-            {'one', 'three', 'two'}
+        set()
+        {'one'}
+        {'three'}
+        {'two'}
+        {'one', 'three'}
+        {'one', 'two'}
+        {'three', 'two'}
+        {'one', 'three', 'two'}
     """
 
     # We don't want duplicats, so
@@ -57,10 +57,6 @@ def powerset(collection: Collection[T]) -> Generator[set[T], None, None]:
 
     # explicitly start at 0 to not forget that the empty set
     # is in the powerset
-
-    # combinations doesn't do the right thing when
-    # given an empty collection, so
-
     for r in range(0, len(s) + 1):
         for result in combinations(s, r):
             # itertools.combinations spits out tuples
