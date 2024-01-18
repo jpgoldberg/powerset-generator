@@ -1,17 +1,20 @@
 from itertools import combinations
-from collections.abc import Hashable
+from collections.abc import Collection
+from typing import TypeVar
 
 from typing import Generator
 
+T = TypeVar("T")
 
-def powerset[T: Hashable](s: set[T]) -> Generator[set[T], None, None]:
+
+def powerset(s: Collection[T]) -> Generator[set[T], None, None]:
     """Generates the members of the powerset of s.
 
     Output includes the empty set. Order of output is not defined.
 
     Example:
         s: set[str] = {"one", "two", "three"}
-        for element in powerset({"one"}):
+        for element in powerset(s):
             print(element)
 
         produces
