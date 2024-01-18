@@ -41,6 +41,21 @@ class TestPowerset(unittest.TestCase):
             all(result.count(i) == self.power_three.count(i) for i in result)
         )
 
+    def test_cardinality(self):
+        vectors: list[tuple[int, list[int]]] = [
+            (1, []),
+            (1024, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
+            (16, [1, 2, 3, 4, 1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 4]),
+            # ( "aleph0", ["the natural numbers"]), # well, hypothetically
+        ]
+
+        for v in vectors:
+            count = 0
+            for _ in powerset.powerset(v[1]):
+                count += 1
+
+            self.assertEqual(v[0], count)
+
 
 if __name__ == "__main__":
     unittest.main()

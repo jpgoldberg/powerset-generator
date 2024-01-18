@@ -54,9 +54,14 @@ def powerset(collection: Collection[T]) -> Generator[set[T], None, None]:
 
     # We don't want duplicats, so
     s: set = set(Counter(collection))
+
     # explicitly start at 0 to not forget that the empty set
     # is in the powerset
+
+    # combinations doesn't do the right thing when
+    # given an empty collection, so
+
     for r in range(0, len(s) + 1):
         for result in combinations(s, r):
-            # itertools.combinations spits out tuples irrespective of type of s
+            # itertools.combinations spits out tuples
             yield set(result)
