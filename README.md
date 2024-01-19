@@ -3,7 +3,7 @@
 ```python
 import powerset_generator.powerset as ps
 
-for e in ps.powerset(["one", "two", "three"]):
+for e in ps.powerset(["one", "two", "three", "three"]):
     print(e)
 ```
 
@@ -19,6 +19,8 @@ set()
 {'three', 'two'}
 {'one', 'three', 'two'}
 ```
+
+A power set includes the empty set and ignores duplicates.
 
 ## Yet another power set package
 
@@ -37,11 +39,16 @@ In
  m = ps.powerset([n for n in range(32)])
 ```
 
-`m` does not consume many Gigabytes of memory
+`m` does not consume many gigabytes of memory.
+
+I probably came across the idea of using a generator
+and `itertools.combinations()` from [Allen Downey](https://stackoverflow.com/users/661626/allen-downey)'s [Stack Overflow answer](https://stackoverflow.com/a/53726866/1304076).
 
 Secondly, I wanted type clarity and breadth.
 Many of the examples that I saw were specific to lists,
 and all lacked type annotations.
 
-Finally, I wanted to try my hand a creating a Python package.
+I also wanted to try my hand a creating a Python package.
 Doing so around a very simple bit of code has its conveniences.
+And while the very initial versions of this started
+aa a GitHub gist, I wanted to add tests and more extensive documentation.
