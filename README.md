@@ -20,15 +20,21 @@ set()
 {'one', 'three', 'two'}
 ```
 
-A power set includes the empty set and ignores duplicates.
+Note that the empty set, `set()` is included in the output
+and that the function treats the duplicated input element `"three"` as if it appeared only once.
+This is correct behavior the mathematical notion of power set.
 
-## Yet another power set package
+The code for the `powerset()` function is derived heavily from
+[Allen Downey](https://stackoverflow.com/users/661626/allen-downey)'s
+[Stack Overflow answer](https://stackoverflow.com/a/53726866/1304076).
+
+## Yet another power set package?
 
 There appear to be an abundance of power set packages,
 along with many code samples.
 So it is fair to ask why I created this one.
-I have not done an extensive review of them,
-but the ones that I did look at were seemed unsatisfactory.
+I have not done an extensive review of the packages
+I happened to see, but the ones that I did look at were seemed unsatisfactory.
 
 First, I wanted something that is a Generator to allow
 for larger sets without consuming horrific amounts of memory.
@@ -40,9 +46,6 @@ In
 ```
 
 `m` does not consume many gigabytes of memory.
-
-I probably came across the idea of using a generator
-and `itertools.combinations()` from [Allen Downey](https://stackoverflow.com/users/661626/allen-downey)'s [Stack Overflow answer](https://stackoverflow.com/a/53726866/1304076).
 
 Secondly, I wanted type clarity and breadth.
 Many of the examples that I saw were specific to lists,
