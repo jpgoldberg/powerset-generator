@@ -1,15 +1,13 @@
 from itertools import combinations
 from collections import Counter
 from collections.abc import Collection
-from typing import TypeVar
+from typing import TypeVar, Hashable, Generator
 
-from typing import Generator
-
-T = TypeVar("T")
+T = TypeVar("T", bound=Hashable)
 
 
 def powerset(collection: Collection[T]) -> Generator[set[T], None, None]:
-    """Generates the members of the powerset of s.
+    """Generates the elements of the powerset of collection.
 
     Power sets
     ------------
@@ -50,6 +48,13 @@ def powerset(collection: Collection[T]) -> Generator[set[T], None, None]:
         {'one', 'two'}
         {'three', 'two'}
         {'one', 'three', 'two'}
+
+    Exceptions
+    ----------
+
+    powerset does not explicitly raise any exceptions on its own,
+    but if its argument is not Collection[Hashable] some of the
+    functions it calls internally are likely to raise a TypeError.
     """
 
     # We don't want duplicats, so
