@@ -46,7 +46,7 @@ class TestPowerset(unittest.TestCase):
             (1, []),
             (1024, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
             (16, [1, 2, 3, 4, 1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 4]),
-            # ( "aleph0", ["the natural numbers"]), # well, hypothetically
+            # ( "ℵ_1", ["the natural numbers"]),
         ]
 
         for v in vectors:
