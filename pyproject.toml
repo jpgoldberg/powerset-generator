@@ -61,6 +61,9 @@ dependencies = [
 [tool.hatch.envs.types.scripts]
 check = "mypy --install-types --non-interactive {args:powerset_generator tests}"
 
+[tool.hatch.publish.index]
+disable = true
+
 [tool.coverage.run]
 source_pkgs = ["powerset_generator", "tests"]
 branch = true
