@@ -32,7 +32,7 @@ Issues = "https://github.com/jpgoldberg/powerset-generator/issues"
 Source = "https://github.com/jpgoldberg/powerset-generator"
 
 [tool.hatch.version]
-path = "powerset_generator/__about__.py"
+path = "src/powerset_generator/__about__.py"
 
 [tool.hatch.envs.default]
 dependencies = [
@@ -59,7 +59,7 @@ dependencies = [
   "mypy>=1.0.0",
 ]
 [tool.hatch.envs.types.scripts]
-check = "mypy --install-types --non-interactive {args:powerset_generator tests}"
+check = "mypy --install-types --non-interactive {args:src/powerset_generator tests}"
 
 [tool.hatch.publish.index]
 disable = true
@@ -73,7 +73,7 @@ omit = [
 ]
 
 [tool.coverage.paths]
-powerset_generator = ["powerset_generator", "*/powerset-generator/powerset_generator"]
+powerset_generator = ["src/powerset_generator", "*/powerset-generator/powerset_generator"]
 tests = ["tests", "*/powerset-generator/tests"]
 
 [tool.coverage.report]
