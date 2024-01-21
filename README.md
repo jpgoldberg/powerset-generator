@@ -3,7 +3,7 @@
 ```python
 import powerset_generator.powerset as ps
 
-for e in ps.powerset(["one", "two", "three", "three"]):
+for e in ps.generate_subsets(["one", "two", "three", "three"]):
     print(e)
 ```
 
@@ -42,7 +42,7 @@ for larger sets without consuming horrific amounts of memory.
 In
 
 ```python
- m = ps.powerset([n for n in range(32)])
+ m = ps.generate_subsets([n for n in range(32)])
 ```
 
 `m` does not consume many gigabytes of memory.

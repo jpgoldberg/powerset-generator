@@ -6,7 +6,9 @@ from typing import TypeVar, Hashable, Generator
 T = TypeVar("T", bound=Hashable)
 
 
-def powerset(collection: Collection[T]) -> Generator[set[T], None, None]:
+def generate_subsets(
+    collection: Collection[T],
+) -> Generator[set[T], None, None]:
     """Generates the elements of the powerset of collection.
 
     Power sets
@@ -34,8 +36,10 @@ def powerset(collection: Collection[T]) -> Generator[set[T], None, None]:
 
     Example::
 
+        from powerset_generator import powerset
+
         a_list: list[str] = ["one", "two", "three"]
-        for element in powerset(s):
+        for element in powerset.generate_subsets(s):
             print(element)
 
     produces::
