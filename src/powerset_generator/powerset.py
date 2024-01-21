@@ -75,4 +75,4 @@ def generate_subsets(
 def size(collection: Collection[Hashable]) -> int:
     """Returns the size of the powerset of collection."""
 
-    return 2 ** len(Counter(collection))
+    return int(2 ** len(Counter(collection)))
