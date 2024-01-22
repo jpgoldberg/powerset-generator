@@ -6,9 +6,16 @@
 Welcome to Powerset generator's documentation!
 ==============================================
 
+**Powerset Generator** is a simply python package for creating power sets
+of a collection.
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
+
+   usage
+   yapp
+   credits
 
 
 
