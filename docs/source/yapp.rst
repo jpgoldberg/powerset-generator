@@ -13,8 +13,7 @@ Thus those packages will produce complete powersets that can be very large.
 But by using using a generator, 
 
 >>> import sys
->>> import powerset_generator.powerset as ps
->>> m = ps.generate_subsets([n for n in range(32)])
+>>> m = powerset.subsets([n for n in range(32)])
 >>> sys.getsizeof(m) < 500
 True
 

@@ -6,10 +6,10 @@ from typing import TypeVar, Hashable, Generator
 T = TypeVar("T", bound=Hashable)
 
 
-def generate_subsets(
+def subsets(
     collection: Collection[T],
 ) -> Generator[set[T], None, None]:
-    """Generates the elements of the powerset of collection.
+    """Generates all the subsets of the powerset of collection.
 
     Power sets
     ------------

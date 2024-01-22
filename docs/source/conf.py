@@ -1,8 +1,12 @@
-# If extensions (or modules to document with autodoc) are in another directory,
-# add these directories to sys.path here.
-import pathlib
+# There has to be a better way
+import os
 import sys
-sys.path.insert(0, pathlib.Path(__file__).parents[2].resolve().as_posix())
+sys.path.insert(0, os.path.abspath('.'))
+sys.path.insert(0, os.path.abspath('../../src'))
+
+doctest_global_setup = '''
+from powerset_generator import powerset
+'''
 
 # Configuration file for the Sphinx documentation builder.
 #

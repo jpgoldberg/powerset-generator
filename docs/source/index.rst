@@ -11,8 +11,8 @@ of a collection.
 
 .. code-block:: python
 
-   import powerset_generator.powerset as ps
-   for e in ps.generate_subsets( ["one", "two", "three", "three"])]:
+   from powerset_generator import powerset
+   for e in ps.subsets( ["one", "two", "three", "three"])]:
       print(e)
 
 should produce a result *similar to*
@@ -30,9 +30,13 @@ should produce a result *similar to*
 
 .. note::
 
-   Note that the empty set, ``set()`` is included in the output;
-   the function treats the duplicated input element `"three"` as if it appeared only once;
-   and that the order of the elements of the results may vary.
+   1. The empty set, ``set()``, is included in the output;
+
+   2. The full set ``{'one', 'two', 'three'}`` is included in the output;
+
+   3. The duplicated input element ``"three"`` is treated as if it appeared only once;
+   
+   4. The order in which the subsets are generated is not defined.
 
      
 
