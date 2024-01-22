@@ -2,13 +2,26 @@ name: "Documentation"
 
 on:
     workflow_dispatch:
-    push:
-      branches: [ "main" ]
-    pull_request:
-      branches: [ "main" ]
+    # push:
+    #  branches: [ "main" ]
+    # pull_request:
+    #  branches: [ "main" ]
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+    contents: read
+    pages: write
+    id-token: write
+
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+    group: "pages"
+    cancel-in-progress: false
 
 jobs:
-    docs:
+    build_docs:
         runs-on: ubuntu-latest
         steps:
         - uses: actions/checkout@v4
@@ -20,3 +33,31 @@ jobs:
           with:
             name: DocumentationHTML
             path: docs/build/html/
+
+    deploy:
+        needs: build_docs
+        environment:
+            name: github-pages
+            url: ${{ steps.deployment.outputs.page_url }}
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Download docs from build_docs job
+              uses: actions/download-artifacts@v4
+              with:
+                name: DocumentationHTML
+
+            - name: Setup Pages
+              uses: actions/configure-pages@v4
+            
+            - name: Upload artifact
+              uses: actions/upload-pages-artifact@v3
+    
+            - name: Deploy to GitHub Pages
+              id: deployment
+              uses: actions/deploy-pages@v4
+    
+
+
+
+
