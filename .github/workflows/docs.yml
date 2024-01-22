@@ -1,0 +1,22 @@
+name: "Documentation"
+
+on:
+    workflow_dispatch:
+    push:
+      branches: [ "main" ]
+    pull_request:
+      branches: [ "main" ]
+
+jobs:
+    docs:
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@v4
+        - uses: ammaraskar/sphinx-action@master
+          with:
+            docs-folder: "docs/"
+
+        - uses: actions/upload-artifact@v1
+          with:
+            name: DocumentationHTML
+            path: docs/build/html/
