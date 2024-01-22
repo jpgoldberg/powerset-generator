@@ -9,6 +9,34 @@ Welcome to Powerset generator's documentation!
 **Powerset Generator** is a simply python package for creating power sets
 of a collection.
 
+.. code-block:: python
+
+   import powerset_generator.powerset as ps
+   for e in ps.generate_subsets( ["one", "two", "three", "three"])]:
+      print(e)
+
+should produce a result *similar to*
+
+.. code-block:: python
+
+   set()
+   {'one'}
+   {'three'}
+   {'two'}
+   {'one', 'three'}
+   {'one', 'two'}
+   {'three', 'two'}
+   {'one', 'three', 'two'}
+
+.. note::
+
+   Note that the empty set, ``set()`` is included in the output;
+   the function treats the duplicated input element `"three"` as if it appeared only once;
+   and that the order of the elements of the results may vary.
+
+     
+
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:

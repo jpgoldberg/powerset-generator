@@ -12,11 +12,13 @@ I did not see other packages that produced a Generator.
 Thus those packages will produce complete powersets that can be very large.
 But by using using a generator, 
 
-.. code-block:: python
+>>> import sys
+>>> import powerset_generator.powerset as ps
+>>> m = ps.generate_subsets([n for n in range(32)])
+>>> sys.getsizeof(m) < 500
+True
 
-    m = ps.generate_subsets([n for n in range(32)])
-
-`m` does not consume many gigabytes of memory.
+``m`` does not consume many gigabytes of memory.
 
 I also noticed that packages and proposed examples did not understand that both the empty set and the set itself are members of a power set.
 Their behavior in that regard may be what users wanted, but it isn't what I wanted when I use the term "power set".
