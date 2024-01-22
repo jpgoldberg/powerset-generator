@@ -38,7 +38,7 @@ jobs:
         needs: build_docs
         environment:
             name: github-pages
-            url: ${{ steps.deployment.outputs.page_url }}
+            url: https://jpgoldberg.github.io/python-powerset
         runs-on: ubuntu-latest
 
         steps:
