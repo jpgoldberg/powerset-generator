@@ -43,7 +43,7 @@ jobs:
 
         steps:
             - name: Download docs from build_docs job
-              uses: actions/download-artifacts@v4
+              uses: actions/download-artifact@v4
               with:
                 name: DocumentationHTML
 
