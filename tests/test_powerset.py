@@ -22,9 +22,7 @@ class TestPowerset(unittest.TestCase):
     ]
 
     def test_powerset(self) -> None:
-        result: list[set[int]] = [
-            s for s in powerset.subsets(self.three_list)
-        ]
+        result: list[set[int]] = [s for s in powerset.subsets(self.three_list)]
 
         # AssertCountEqual requires elements to be hashable, which they
         # aren't in our case. So we do it the slow way
