@@ -12,7 +12,7 @@ of a collection.
 .. code-block:: python
 
    from powerset_generator import powerset
-   for e in ps.subsets( ["one", "two", "three", "three"])]:
+   for e in powerset.subsets( ["one", "two", "three", "three"])]:
       print(e)
 
 should produce a result *similar to*
