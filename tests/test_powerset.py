@@ -1,6 +1,6 @@
 import unittest
 
-from powerset_generator import powerset
+from powerset_generator import subsets, size
 
 
 class TestPowerset(unittest.TestCase):
@@ -22,7 +22,7 @@ class TestPowerset(unittest.TestCase):
     ]
 
     def test_powerset(self) -> None:
-        result: list[set[int]] = [s for s in powerset.subsets(self.three_list)]
+        result: list[set[int]] = [s for s in subsets(self.three_list)]
 
         # AssertCountEqual requires elements to be hashable, which they
         # aren't in our case. So we do it the slow way
@@ -32,9 +32,7 @@ class TestPowerset(unittest.TestCase):
         )
 
     def test_powerset_repeated(self) -> None:
-        result: list[set[int]] = [
-            s for s in powerset.subsets(self.three_repetition)
-        ]
+        result: list[set[int]] = [s for s in subsets(self.three_repetition)]
 
         # AssertCountEqual requires elements to be hashable, which they
         # aren't in our case. So we do it the slow way
@@ -53,7 +51,7 @@ class TestPowerset(unittest.TestCase):
 
         for v in vectors:
             count = 0
-            for _ in powerset.subsets(v[1]):
+            for _ in subsets(v[1]):
                 count += 1
 
             self.assertEqual(v[0], count)
@@ -68,7 +66,7 @@ class TestPowerset(unittest.TestCase):
         ]
 
         for v in vectors:
-            self.assertEqual(v[0], powerset.size(v[1]))
+            self.assertEqual(v[0], size(v[1]))
 
 
 if __name__ == "__main__":

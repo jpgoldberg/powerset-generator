@@ -3,7 +3,7 @@
 ```python
 import powerset_generator.powerset as ps
 
-for e in ps.generate_subsets(["one", "two", "three", "three"]):
+for e in ps.subsets(["one", "two", "three", "three"]):
     print(e)
 ```
 
@@ -24,7 +24,7 @@ Note that the empty set, `set()` is included in the output
 and that the function treats the duplicated input element `"three"` as if it appeared only once.
 This is correct behavior the mathematical notion of power set.
 
-The code for the `powerset()` function is derived heavily from
+The code for the `subsets()` function is derived heavily from
 [Allen Downey](https://stackoverflow.com/users/661626/allen-downey)'s
 [Stack Overflow answer](https://stackoverflow.com/a/53726866/1304076).
 
@@ -42,7 +42,7 @@ for larger sets without consuming horrific amounts of memory.
 In
 
 ```python
- m = ps.generate_subsets([n for n in range(32)])
+ m = ps.subsets([n for n in range(32)])
 ```
 
 `m` does not consume many gigabytes of memory.

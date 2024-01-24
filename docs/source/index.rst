@@ -12,7 +12,7 @@ of a collection.
 .. code-block:: python
 
    from powerset_generator import powerset
-   for e in powerset.subsets( ["one", "two", "three", "three"])]:
+   for e in powerset( ["one", "two", "three", "three"])]:
       print(e)
 
 should produce a result *similar to*
@@ -37,8 +37,6 @@ should produce a result *similar to*
    3. The duplicated input element ``"three"`` is treated as if it appeared only once;
    
    4. The order in which the subsets are generated is not defined.
-
-     
 
 
 .. toctree::

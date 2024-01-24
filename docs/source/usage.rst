@@ -18,9 +18,10 @@ Functions
 
 The ``powerset`` module includes two functions, each of which take a collection of hashables as arguments
 
-.. autofunction:: powerset_generator.powerset.subsets
+.. autofunction:: powerset_generator.subsets
 
-.. autofunction:: powerset_generator.powerset.size
+.. autofunction:: powerset_generator.size
+
 
 
 
