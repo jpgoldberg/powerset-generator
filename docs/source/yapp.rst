@@ -8,16 +8,22 @@ So it is fair to ask why I created this one.
 I have not done an extensive review of the packages
 I happened to see, but the ones that I did look at were seemed unsatisfactory.
 
-I did not see other packages that produced a Generator.
+I did not see other packages that produced a
+:py:class:`collections.abc.Generator`.
 Thus those packages will produce complete powersets that can be very large.
 But by using using a generator, 
 
->>> import sys
->>> from powerset_generator import subsets
->>>
->>> m = subsets([n for n in range(32)])
->>> sys.getsizeof(m) < 500
-True
+.. testcode:: python
+
+    import sys
+    from powerset_generator import subsets
+
+    m = subsets([n for n in range(32)])
+    sys.getsizeof(m) < 500
+
+.. testoutput::
+
+    True
 
 ``m`` does not consume many gigabytes of memory.
 

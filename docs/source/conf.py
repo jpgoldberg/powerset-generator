@@ -31,6 +31,11 @@ extensions = [
     "sphinx.ext.doctest",
 ]
 
+extensions.append("sphinx.ext.intersphinx")
+intersphinx_mapping = {
+    "python": ("https://docs.python.org/3", None),
+}
+
 templates_path = ["_templates"]
 exclude_patterns = []
 

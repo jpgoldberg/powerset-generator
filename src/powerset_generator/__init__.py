@@ -1,7 +1,7 @@
 from itertools import combinations
 from collections import Counter
-from collections.abc import Collection
-from typing import TypeVar, Hashable, Generator
+from collections.abc import Collection, Generator, Hashable
+from typing import TypeVar
 
 T = TypeVar("T", bound=Hashable)
 
