@@ -3,16 +3,31 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Powerset generator's documentation!
+A Python Generator of power sets
 ==============================================
 
 **Powerset Generator** is a simply python package for creating power sets
 of a collection.
 
+Installation
+------------
+
+To use powerset generator, first install it with `pip`
+
+.. code-block:: console
+
+    $ pip install powerset-generator
+
+.. note:: 
+    That installation won't work until this powerset-generator package is actually published. It isn't yet.
+
+Example
+-------
+
 .. code-block:: python
 
-   from powerset_generator import powerset
-   for e in powerset( ["one", "two", "three", "three"])]:
+   from powerset_generator import subsets
+   for e in subsets( ["one", "two", "three", "three"])]:
       print(e)
 
 should produce a result *similar to*
@@ -48,10 +63,8 @@ should produce a result *similar to*
    credits
 
 
-
 Indices and tables
 ==================
 
 * :ref:`genindex`
-* :ref:`modindex`
 * :ref:`search`

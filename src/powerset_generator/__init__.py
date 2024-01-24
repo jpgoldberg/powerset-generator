@@ -22,9 +22,10 @@ def subsets(
     * The power set includes the empty set.
 
     * The power set includes a set of all members of the collections.
-    That is, it is not limited to the proper subsets of the collection.
+      That is, it is not limited to the proper subsets of the collection.
 
-    * If the collection has N elements, the power set will have 2^N elements.
+    * If the collection has *N* unique elements,
+      the power set will have 2^N` elements.
 
     Usage notes
     -------------
