@@ -27,6 +27,7 @@ release = "0.1"
 
 extensions = [
     "sphinx.ext.autodoc",
+    "sphinx_autodoc_typehints",
     "sphinx.ext.doctest",
 ]
 

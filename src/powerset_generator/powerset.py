@@ -11,6 +11,8 @@ def subsets(
 ) -> Generator[set[T], None, None]:
     """Generates all the subsets of the powerset of collection.
 
+    :param collection: The collection you want the subsets of
+
     Power sets
     ------------
 
