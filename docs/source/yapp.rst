@@ -2,57 +2,69 @@ Yet Another Powerset Package?
 =============================
 
 There appear to be an abundance of power set packages,
-along with many code samples.
+along with many code samples for producing power sets in Python.
 So it is fair to ask why I created this one.
 
-I have not done an extensive review of the packages
-I happened to see, but the ones that I did look at were seemed unsatisfactory.
+Although I have not done a thorough review of packages turned up in a 
+`search for powerset on PyPi <https://pypi.org/search/?q=powerset>`_,
+but the few that I glanced at seemed deficient in one way or others.
 
-I did not see other packages that produced a
-:py:class:`collections.abc.Generator`.
-Thus those packages will produce complete powersets that can be very large.
-But by using using a generator, 
+Among the features that I wanted were,
 
-.. testcode:: python
+* Returning a :py:class:`collections.abc.Generator`.
 
-    import sys
-    from powerset_generator import subsets
+  Power sets grow expontentially with the size of their input.
+  I wanted to accomodate larger sets without consuming hugh amounts
+  of memory.
 
-    m = subsets([n for n in range(32)])
-    sys.getsizeof(m) < 500
+    .. testcode:: python
 
-.. testoutput::
+        import sys
+        from powerset_generator import subsets
 
-    True
+        m = subsets([n for n in range(32)])
+        sys.getsizeof(m) < 500
 
-``m`` does not consume many gigabytes of memory.
+    .. testoutput::
 
-I also noticed that packages and proposed examples did not understand that both the empty set and the set itself are members of a power set.
-Their behavior in that regard may be what users wanted, but it isn't what I wanted when I use the term "power set".
+        True
 
-Nor did they deal consistently (or in documented fashion) regarding inputs.
-Finally, they were typically defined specifically for lists instead of collections more broadly.
+    ``m`` does not consume many gigabytes of memory.
+
+* Include the empty set and the full set of elements of the input among the output sets.
+
+  Some packages appeared to not follow the mathematical definition that way.
+  I do understand that in many use cases, the behavior following the mathematical definition is not what people want,
+  but if we need to pick one behavior, it should be what follows from the conventional definition.
+
+* Ignore duplicated elements in the input collection.
+
+  Although we can't actually take a Python py:class:`set` as our input,
+  we should still generatoe the powerset ignoring duplicate elements.
+
+* Clearly document the decisions on the above.
+
+  While users may not agree with the decisions I've made regarding such things as the empty set or the treatment of duplicates,
+  I have clearly docummented them.
+  You do not have to experiment or read the source to know how this power set package behaves.
+
+* Be clear and as flexible as possible about types.
+
+  Some code I'd seen produced tuples, others lists and often without documenting that.
+  I have chosen :py:class:`set` to accentuate my attempt
+  to follow set theoretic definitions.
+  
+  Because sets are generated, the minimum requirement on the elements of the input is tha they be :py:class:`collections.abc.Hashable`.
+  And the most general type of the input is that it be a
+  :py:class:`collections.abc.Collection`.
+
+* I get to learn how to prepare my first Python package.
+
+  Sure, this package may be over engineered,
+  with an excessive amount of documentation and testing for what is
+  just a few lines of simple code.
+  But I've learned a great deal about Python packaging, decomentation,
+  testing, and deployment in this process.
+  This was my primary purpose.
 
 None of this may be sufficient reason in *your view* for me to create yet another powerset package, but it was suffient for *me*.
-
-
-Wouldn't a gist be enough?
---------------------------
-
-The actual function is just a few lines of very simple code,
-so it may well be overkill to make an entire package for such a simple thing.
-A GitHub Gist seems sufficient.
-Indeed, that is how this started.
-Three things tipped the balance for me to make this a package:
-
-1. I wanted to include more documentation than would be appropriate for a docstring.
-
-2. I wanted to include separate test files.
-
-3. I wanted to create my first Python package, and doing so with some very simple code seemed like a way to start.
-
-
-I also wanted to try my hand a creating a Python package.
-Doing so around a very simple bit of code has its conveniences.
-And while the very initial versions of this started
-aa a GitHub gist, I wanted to add tests and more extensive documentation.
