@@ -17,9 +17,8 @@ jobs:
       pages: write
       id-token: write
     steps:
-    - name: Check Out
-      uses: actions/checkout@v4
+   
     - id: deployment
       uses: sphinx-notes/pages@v3
       with:
-        checkout: false
+        documentation_path: ./docs
