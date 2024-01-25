@@ -20,7 +20,7 @@ from powerset_generator import subsets
 project = "Powerset generator"
 copyright = "2024, Jeffrey Goldberg"
 author = "Jeffrey Goldberg"
-release = "0.1"
+release = "0.0.2"
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -35,6 +35,8 @@ extensions.append("sphinx.ext.intersphinx")
 intersphinx_mapping = {
     "python": ("https://docs.python.org/3", None),
 }
+
+extensions.append("sphinx.ext.mathjax")
 
 templates_path = ["_templates"]
 exclude_patterns: list[str] = []

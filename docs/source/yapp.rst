@@ -1,5 +1,5 @@
-Yet Another Powerset Package?
-=============================
+Why? – Yet another powerset packages
+====================================
 
 There appear to be an abundance of power set packages,
 along with many code samples for producing power sets in Python.

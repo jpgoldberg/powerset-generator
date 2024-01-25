@@ -1,5 +1,5 @@
-Usage
-======
+How? – How to use this package
+==============================
 
 The package provides a single function, :py:func:`subsets`, which returns a :py:class:`collections.abc.Generator` for the subsets of of ``collection``.
 
@@ -8,7 +8,8 @@ The package provides a single function, :py:func:`subsets`, which returns a :py:
 Additional notes
 ----------------
 
-The number of subsets of a collection with *N* unique elements is 2^N.
+The number of subsets of a collection with *N* unique elements
+is :math:`2^N`.
 You can compute that with
 
 .. testcode:: python
