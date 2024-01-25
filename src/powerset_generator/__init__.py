@@ -73,9 +73,3 @@ def subsets(
         for result in combinations(s, r):
             # itertools.combinations spits out tuples
             yield set(result)
-
-
-def size(collection: Collection[Hashable]) -> int:
-    """Returns the size of the powerset of collection."""
-
-    return int(2 ** len(Counter(collection)))

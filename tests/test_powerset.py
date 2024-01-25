@@ -1,6 +1,6 @@
 import unittest
 
-from powerset_generator import subsets, size
+from powerset_generator import subsets
 
 
 class TestPowerset(unittest.TestCase):
@@ -55,18 +55,6 @@ class TestPowerset(unittest.TestCase):
                 count += 1
 
             self.assertEqual(v[0], count)
-
-    def test_size(self) -> None:
-        vectors: list[tuple[int, list[int]]] = [
-            (1, []),
-            (1024, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
-            (16, [1, 2, 3, 4, 1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 4]),
-            # ( "ℵ_1", ["the natural numbers"]),
-            (2**20, [e for e in range(20)]),
-        ]
-
-        for v in vectors:
-            self.assertEqual(v[0], size(v[1]))
 
 
 if __name__ == "__main__":
