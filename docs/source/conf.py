@@ -1,35 +1,43 @@
 # There has to be a better way
 import os
 import sys
+import tomllib
+
+from powerset_generator import __about__
 
 sys.path.insert(0, os.path.abspath("."))
 sys.path.insert(0, os.path.abspath("../../src"))
 
-doctest_global_setup = """
-from powerset_generator import subsets
-"""
+# Pull general sphinx project info from pyproject.toml
+with open("../../pyproject.toml", "rb") as f:
+    toml = tomllib.load(f)
 
-# Configuration file for the Sphinx documentation builder.
-#
-# For the full list of built-in configuration values, see the documentation:
-# https://www.sphinx-doc.org/en/master/usage/configuration.html
+version = __about__.__version__
 
-# -- Project information -----------------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
+pyproject = toml["project"]
 
-project = "Powerset generator"
-copyright = "2024, Jeffrey Goldberg"
-author = "Jeffrey Goldberg"
-release = "0.0.2"
+project = pyproject["name"]
+release = version
+author = ','.join([author["name"] for author in pyproject["authors"]])
+copyright = f"2024 {author}"
 
-# -- General configuration ---------------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
+rst_prolog = f'''
+.. |project| replace:: **{project}**
+.. |root| replace:: :mod:`powerset_generator`
+'''
+
 
 extensions: list[str] = [
     "sphinx.ext.autodoc",
     "sphinx_autodoc_typehints",
     "sphinx.ext.doctest",
 ]
+
+### doctest setup
+doctest_global_setup = """
+from powerset_generator import subsets
+"""
+
 
 extensions.append("sphinx.ext.intersphinx")
 intersphinx_mapping = {

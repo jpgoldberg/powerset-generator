@@ -1,4 +1,4 @@
-Why? – Yet another powerset packages
+Why? – Yet another powerset package
 ====================================
 
 There appear to be an abundance of power set packages,

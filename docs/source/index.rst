@@ -6,8 +6,8 @@
 A Python Generator of power sets
 ==============================================
 
-**Powerset Generator** is a simply python package for creating power sets
-of a collection.
+This is documentatation for version |version| of |project| package,
+a simply python package for creating power sets of a collection.
 
 Installation
 ------------
@@ -23,6 +23,9 @@ To use powerset generator, first install it with `pip`
 
 Example
 -------
+
+The root (and so far only) module is |root|,
+providing the only function, :func:`subsets`.
 
 .. code-block:: python
 
