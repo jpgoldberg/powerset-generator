@@ -18,13 +18,13 @@ pyproject = toml["project"]
 
 project = pyproject["name"]
 release = version
-author = ','.join([author["name"] for author in pyproject["authors"]])
+author = ",".join([author["name"] for author in pyproject["authors"]])
 copyright = f"2024 {author}"
 
-rst_prolog = f'''
+rst_prolog = f"""
 .. |project| replace:: **{project}**
 .. |root| replace:: :mod:`powerset_generator`
-'''
+"""
 
 
 extensions: list[str] = [
