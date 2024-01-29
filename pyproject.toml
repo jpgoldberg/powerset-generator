@@ -30,6 +30,7 @@ dependencies = []
 Documentation = "https://jpgoldberg.github.io/powerset-generator/"
 Issues = "https://github.com/jpgoldberg/powerset-generator/issues"
 Source = "https://github.com/jpgoldberg/powerset-generator"
+Changelog = "https://github.com/jpgoldberg/powerset-generator/blob/main/CHANGELOG.md"
 
 [tool.hatch.version]
 path = "src/powerset_generator/__about__.py"
