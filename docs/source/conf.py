@@ -33,7 +33,7 @@ extensions: list[str] = [
     "sphinx.ext.doctest",
 ]
 
-### doctest setup
+# ## doctest setup
 doctest_global_setup = """
 from powerset_generator import subsets
 """
